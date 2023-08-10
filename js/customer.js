@@ -1,34 +1,26 @@
 const database = firebase.firestore();
 
-function createCustomer(nic, name, address) {
+function createCustomer(nic,name,address){
     database.collection('customer').add({
-        nic: nic,
-        name: name,
-        address: address
+        nic:nic,
+        name:name,
+        address:address
     })
-        .then(result => {
-            console.log(result);
-            alert("Success")
-        })
-        .catch(error => {
-            console.log(error);
-            alert("not success")
-        })
+    .then(result=>{
+        console.log(result);
+    })
+    .catch(error=>{
+        console.log(error);
+    })
 }
-
-createCustomer("98", "nimal", "colombo");
-
-function saveData() {
+const saveData=()=>{
 
     let nicData = document.getElementById('nic');
     let nameData = document.getElementById('name');
     let addressData = document.getElementById('address');
 
-    let nic = nicData.value;
-    let name = nameData.value;
-    let address = addressData.value;
-    createCustomer(nic, name, address);
+    let nic=nicData.value;
+    let name=nameData.value;
+    let address=addressData.value;
+    createCustomer(nic,name,address);
 }
-
-
-
